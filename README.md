@@ -1,6 +1,5 @@
-Assignment #1
+Term Project
 CS 622 Spring O1
-Piper Lincoln
 =======================================================
 
 Instructions on Running Code
