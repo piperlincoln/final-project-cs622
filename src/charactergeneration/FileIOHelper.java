@@ -2,7 +2,7 @@
 //   
 // Author:        Piper Lincoln
 // Class:         Spring 2022 O1 CS 622
-// Description:   The main control logic of the D&Dvelop program.
+// Description:   A class to assist with reading input and writing output.
 ///////////////////////////////////////////////////////////////////////////////
 
 package charactergeneration;
@@ -22,13 +22,15 @@ public class FileIOHelper {
 	
 	public static ArrayList<String> readFileData(String fileLocation) throws FileNotFoundException {
 		// Initialize a scanner to read race or class data from an input file.
-		Scanner infile = new Scanner(new File(fileLocation)).useDelimiter("\\n");;
+		Scanner infile = new Scanner(new File(fileLocation)).useDelimiter("\\n");
 		
 		// Add the race or class name and description into a list.
 		ArrayList<String> dataList = new ArrayList<String>();
 		while (infile.hasNext()) {         
 			dataList.add(infile.next());
 		}
+		
+		// Return the list of races or classes in the file.
 		infile.close();
 		return dataList;
 	}

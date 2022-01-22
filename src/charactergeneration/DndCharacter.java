@@ -75,6 +75,6 @@ public class DndCharacter {
 	 * Roll a d20 to help determine the statistics of the character. 
 	 */
 	public int rollDice() {
-		return rand.nextInt(20);
+		return rand.nextInt(20) + 1;
 	}
 }

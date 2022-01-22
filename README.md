@@ -14,8 +14,6 @@ Instructions on Running Code
 
 Miscellaneous Notes
 -------------------------------------------------------
-1. In future releases, there will be JUnit tests
-   for each applicable method.
-2. In future releases, a stretch goal is to hook
+1. In future releases, a stretch goal is to hook
    into the following API to read information instead
    of hard-coding it: http://www.dnd5eapi.co/.

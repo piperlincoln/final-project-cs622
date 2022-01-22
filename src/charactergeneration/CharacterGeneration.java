@@ -20,8 +20,8 @@ import races.DndRaceFactory;
  */
 public class CharacterGeneration {
 	
-	private static ArrayList<String> raceList;
-	private static ArrayList<String> classList;
+	private static ArrayList<String> raceList;     // The list of races the user can choose from.
+	private static ArrayList<String> classList;    // The list of classes the user can choose from.
 	
 	public static void main(String[] args) {
 		// Initialize a scanner to read user input from the console.
