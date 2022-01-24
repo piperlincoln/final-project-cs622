@@ -7,8 +7,10 @@
 
 package classes;
 
+import charactergeneration.UserInputException;
+
 public class DndClassFactory {
-	public DndClass newClass(String dndClass) throws IllegalArgumentException {
+	public DndClass newClass(String dndClass) throws UserInputException {
 		if ("Barbarian".equalsIgnoreCase(dndClass))
 			return new Barbarian();
 		if ("Bard".equalsIgnoreCase(dndClass))
@@ -33,6 +35,6 @@ public class DndClassFactory {
 			return new Warlock();
 		if ("Wizard".equalsIgnoreCase(dndClass))
 			return new Wizard();
-		throw new IllegalArgumentException("Unknown Class: " + dndClass);
+		throw new UserInputException("Unknown Class: " + dndClass);
   }
 }

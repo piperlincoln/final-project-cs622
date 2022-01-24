@@ -56,6 +56,14 @@ public class DndCharacter {
 		this.dndClass = dndClass;
 	}
 	
+	public String getBackground() {
+		return background.split(":")[0];
+	}
+	
+	public void setBackground(String background) {
+		this.background = background;
+	}
+	
 	public String display() {
 		String charDescription = "";
 		charDescription += "Name: " + name + "\n";
@@ -68,6 +76,7 @@ public class DndCharacter {
 			charDescription += "Languages: " + Arrays.toString(race.getLanguages()) + "\n";
 		}
 		charDescription += "Traits: " + Arrays.toString(race.getTraits()) + "\n";
+		charDescription += "Background: " + this.getBackground();
 		return charDescription;
 	}
 	

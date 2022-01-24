@@ -37,6 +37,12 @@ public class DndCharacterTest {
 	}
 	
 	@Test
+	public void getBackgroundTest() {
+		testCharacter.setBackground("Sage: You spent years learning the lore of the multiverse.");
+		assertEquals(testCharacter.getBackground(), "Sage");
+	}
+	
+	@Test
 	public void rollDiceTest() {
 		int diceRoll = testCharacter.rollDice();
 		assertTrue(diceRoll > 0);

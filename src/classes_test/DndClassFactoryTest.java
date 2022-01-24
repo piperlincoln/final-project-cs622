@@ -11,6 +11,7 @@ import static org.junit.Assert.assertThrows;
 import static org.junit.Assert.assertTrue;
 import org.junit.jupiter.api.Test;
 
+import charactergeneration.UserInputException;
 import classes.Barbarian;
 import classes.DndClassFactory;
 
@@ -19,16 +20,16 @@ public class DndClassFactoryTest {
 	private DndClassFactory classFactory = new DndClassFactory();
 	
 	@Test
-	public void newClassTest() {
+	public void newClassTest() throws UserInputException {
 		assertTrue(classFactory.newClass("Barbarian") instanceof Barbarian);
 	}
 	
 	@Test
 	public void newClassExceptionTest() {
-		Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+		Exception exception = assertThrows(UserInputException.class, () -> {
 			classFactory.newClass("Test");
 		});
-		assertTrue(exception.getMessage().contains("Unknown Class"));
+		assertTrue(exception.toString().contains("Unknown Class"));
 	}
 
 }

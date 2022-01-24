@@ -7,8 +7,10 @@
 
 package races;
 
+import charactergeneration.UserInputException;
+
 public class DndRaceFactory {
-	public DndRace newRace(String race) throws IllegalArgumentException {
+	public DndRace newRace(String race) throws UserInputException {
 		if ("Dwarf".equalsIgnoreCase(race))
 			return new Dwarf();
 		if ("Elf".equalsIgnoreCase(race))
@@ -27,6 +29,6 @@ public class DndRaceFactory {
 			return new HalfOrc();
 		if ("Tiefling".equalsIgnoreCase(race))
 			return new Tiefling();
-		throw new IllegalArgumentException("Unknown Race: " + race);
+		throw new UserInputException("Unknown Race: " + race);
   }
 }

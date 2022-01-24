@@ -1,0 +1,7 @@
+Acolyte: You have spent your life in the service of a temple to a specific god or pantheon of gods.
+Criminal: You are an experienced criminal with a history of breaking the law.
+Folk Hero: You come from a humble social rank, but you are destined for so much more.
+Haunted One: You are haunted by something so terrible that you dare not speak of it.
+Noble: You understand wealth, power, and privilege, and you carry a noble title.
+Sage: You spent years learning the lore of the multiverse.
+Soldier: War has been your life for as long as you care to remember.
