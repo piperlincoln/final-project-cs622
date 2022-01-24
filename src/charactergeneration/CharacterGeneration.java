@@ -43,7 +43,7 @@ public class CharacterGeneration {
 			}
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
-			reader.close();
+			reader.close(); // The reader will be closed on Line 143 if this exception is not caught.
 			return;
 		}
 		
@@ -53,7 +53,7 @@ public class CharacterGeneration {
 			userRaceChoice = reader.nextInt();
 		} catch (InputMismatchException e) {
 			System.out.println(e.toString());
-			reader.close();
+			reader.close(); // The reader will be closed on Line 143 if this exception is not caught.
 			return;
 		}
 		
@@ -63,7 +63,7 @@ public class CharacterGeneration {
 			character.setRace(raceFactory.newRace(raceList.get(userRaceChoice - 1).split(":")[0]));
 		} catch (UserInputException e) {
 			System.out.println(e.toString());
-			reader.close();
+			reader.close(); // The reader will be closed on Line 143 if this exception is not caught.
 			return;
 		}
 		
@@ -76,7 +76,7 @@ public class CharacterGeneration {
 			}
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
-			reader.close();
+			reader.close(); // The reader will be closed on Line 143 if this exception is not caught.
 			return;
 		}
 		
@@ -86,7 +86,7 @@ public class CharacterGeneration {
 			userClassChoice = reader.nextInt();
 		} catch (InputMismatchException e) {
 			System.out.println(e.toString());
-			reader.close();
+			reader.close(); // The reader will be closed on Line 143 if this exception is not caught.
 			return;
 		}
 		
@@ -96,7 +96,7 @@ public class CharacterGeneration {
 			character.setDndClass(classFactory.newClass(classList.get(userClassChoice - 1).split(":")[0]));
 		} catch (UserInputException e) {
 			System.out.println(e.toString());
-			reader.close();
+			reader.close(); // The reader will be closed on Line 143 if this exception is not caught.
 			return;
 		}
 		
@@ -109,7 +109,7 @@ public class CharacterGeneration {
 			}
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
-			reader.close();
+			reader.close(); // The reader will be closed on Line 143 if this exception is not caught.
 			return;
 		}
 		
@@ -120,7 +120,7 @@ public class CharacterGeneration {
 			character.setBackground(backgroundList.get(userBackgroundChoice - 1));
 		} catch (InputMismatchException e) {
 			System.out.println(e.toString());
-			reader.close();
+			reader.close(); // The reader will be closed on Line 143 if this exception is not caught.
 			return;
 		}
 		
@@ -131,7 +131,7 @@ public class CharacterGeneration {
 			FileIOHelper.writeFileData(fileLocation, characterInformation);
 		} catch (IOException e) {
 			e.printStackTrace();
-			reader.close();
+			reader.close(); // The reader will be closed on Line 143 if this exception is not caught.
 			return;
 		}
 		
