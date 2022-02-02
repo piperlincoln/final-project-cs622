@@ -7,6 +7,8 @@
 
 package races;
 
+import charactergeneration.GenericTraitContainer;
+
 /**
  * The Elf race in Dungeons and Dragons. 
  */
@@ -23,6 +25,9 @@ public class Elf extends DndRace {
 									"Elf Weapon", 
 									"Training", 
 									"Fey Step"};
+		
+		// The special trait of the Elf race is the weapon they are proficient with.
+		this.specialTrait = new GenericTraitContainer<String>("Longsword", "The weapon this character is proficient with.");
 	}
 	
 	public String getRace() {
@@ -36,5 +41,8 @@ public class Elf extends DndRace {
 	}
 	public String[] getTraits() {
 		return this.traits;
+	}
+	public GenericTraitContainer<?> getSpecialTrait() {
+		return this.specialTrait;
 	}
 }

@@ -16,7 +16,7 @@ public class Wizard extends DndClass{
 		this.dndClass = "Wizard";
 		this.description = "A scholarly magic-user capable of manipulating the structures of reality.";
 		this.hitPoints = 6;
-		this.primaryAbility = "Intelligence";
+		this.primaryAbility = 3;  // The primary ability of a Wizard is Intelligence.
 	}
 	
 	public String getDndClass() {
@@ -30,5 +30,8 @@ public class Wizard extends DndClass{
 	}
 	public void setProficiencies(String[] proficiencies) {
 		this.proficiencies = proficiencies;
+	}
+	public int getPrimaryAbility() {
+		return this.primaryAbility;
 	}
 }

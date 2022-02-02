@@ -16,7 +16,7 @@ public class Druid extends DndClass{
 		this.dndClass = "Druid";
 		this.description = "A priest of the Old Faith, wielding the powers of nature and adopting animal forms.";
 		this.hitPoints = 8;
-		this.primaryAbility = "Wisdom";
+		this.primaryAbility = 4;  // The primary ability of a Druid is Wisdom.
 	}
 	
 	public String getDndClass() {
@@ -30,5 +30,8 @@ public class Druid extends DndClass{
 	}
 	public void setProficiencies(String[] proficiencies) {
 		this.proficiencies = proficiencies;
+	}
+	public int getPrimaryAbility() {
+		return this.primaryAbility;
 	}
 }

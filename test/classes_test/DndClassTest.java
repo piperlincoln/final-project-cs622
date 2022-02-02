@@ -36,5 +36,4 @@ public class DndClassTest {
 		assertEquals(proficiencies[0], "Animal Handling");
 		assertEquals(proficiencies[1], "Athletics");
 	}
-
 }

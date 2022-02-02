@@ -7,6 +7,8 @@
 
 package races;
 
+import charactergeneration.GenericTraitContainer;
+
 /**
  * The Tiefling race in Dungeons and Dragons. 
  */
@@ -21,6 +23,9 @@ public class Tiefling extends DndRace {
 		this.traits = new String[] {"Darkvision", 
 									"Hellish Resistance", 
 									"Infernal Legacy"};
+		
+		// The special trait of the Tiefling race is their Darkvision.
+		this.specialTrait = new GenericTraitContainer<Integer>(60, "How far a Tiefling can see in the dark in feet.");
 	}
 	
 	public String getRace() {
@@ -34,5 +39,8 @@ public class Tiefling extends DndRace {
 	}
 	public String[] getTraits() {
 		return this.traits;
+	}
+	public GenericTraitContainer<?> getSpecialTrait() {
+		return this.specialTrait;
 	}
 }

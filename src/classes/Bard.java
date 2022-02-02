@@ -16,7 +16,7 @@ public class Bard extends DndClass{
 		this.dndClass = "Bard";
 		this.description = "An inspiring magician whose power echoes the music of creation.";
 		this.hitPoints = 8;
-		this.primaryAbility = "Charisma";
+		this.primaryAbility = 5;  // The primary ability of a Bard is Charisma.
 	}
 	
 	public String getDndClass() {
@@ -30,5 +30,8 @@ public class Bard extends DndClass{
 	}
 	public void setProficiencies(String[] proficiencies) {
 		this.proficiencies = proficiencies;
+	}
+	public int getPrimaryAbility() {
+		return this.primaryAbility;
 	}
 }

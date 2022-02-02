@@ -7,6 +7,8 @@
 
 package races;
 
+import charactergeneration.GenericTraitContainer;
+
 /**
  * The Halfling race in Dungeons and Dragons. 
  */
@@ -34,5 +36,8 @@ public class Halfling extends DndRace {
 	}
 	public String[] getTraits() {
 		return this.traits;
+	}
+	public GenericTraitContainer<?> getSpecialTrait() {
+		return null;
 	}
 }

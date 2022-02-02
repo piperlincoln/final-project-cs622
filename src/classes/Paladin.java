@@ -16,7 +16,7 @@ public class Paladin extends DndClass{
 		this.dndClass = "Paladin";
 		this.description = "A holy warrior bound to a sacred oath.";
 		this.hitPoints = 10;
-		this.primaryAbility = "Charisma";
+		this.primaryAbility = 2;  // The primary ability of a Paladin is Dexterity.
 	}
 	
 	public String getDndClass() {
@@ -30,5 +30,8 @@ public class Paladin extends DndClass{
 	}
 	public void setProficiencies(String[] proficiencies) {
 		this.proficiencies = proficiencies;
+	}
+	public int getPrimaryAbility() {
+		return this.primaryAbility;
 	}
 }

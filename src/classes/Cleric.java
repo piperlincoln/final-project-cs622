@@ -16,7 +16,7 @@ public class Cleric extends DndClass{
 		this.dndClass = "Cleric";
 		this.description = "A priestly champion who wields divine magic in service of a higher power.";
 		this.hitPoints = 8;
-		this.primaryAbility = "Wisdom";
+		this.primaryAbility = 4;  // The primary ability of a Cleric is Wisdom.
 	}
 	
 	public String getDndClass() {
@@ -30,5 +30,8 @@ public class Cleric extends DndClass{
 	}
 	public void setProficiencies(String[] proficiencies) {
 		this.proficiencies = proficiencies;
+	}
+	public int getPrimaryAbility() {
+		return this.primaryAbility;
 	}
 }

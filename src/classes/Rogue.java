@@ -16,7 +16,7 @@ public class Rogue extends DndClass{
 		this.dndClass = "Rogue";
 		this.description = "A scoundrel who uses stealth and trickery to overcome obstacles and enemies.";
 		this.hitPoints = 8;
-		this.primaryAbility = "Dexterity";
+		this.primaryAbility = 2;  // The primary ability of a Rogue is Dexterity.
 	}
 	
 	public String getDndClass() {
@@ -30,5 +30,8 @@ public class Rogue extends DndClass{
 	}
 	public void setProficiencies(String[] proficiencies) {
 		this.proficiencies = proficiencies;
+	}
+	public int getPrimaryAbility() {
+		return this.primaryAbility;
 	}
 }

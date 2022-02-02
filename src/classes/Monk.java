@@ -17,7 +17,7 @@ public class Monk extends DndClass{
 		this.description = "A master of martial arts, harnessing the power of the "
 				+ "body in pursuit of physical and spiritual perfection.";
 		this.hitPoints = 8;
-		this.primaryAbility = "Dexterity";
+		this.primaryAbility = 2;  // The primary ability of a Monk is Dexterity.
 	}
 	
 	public String getDndClass() {
@@ -31,5 +31,8 @@ public class Monk extends DndClass{
 	}
 	public void setProficiencies(String[] proficiencies) {
 		this.proficiencies = proficiencies;
+	}
+	public int getPrimaryAbility() {
+		return this.primaryAbility;
 	}
 }

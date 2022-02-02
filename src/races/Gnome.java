@@ -7,6 +7,10 @@
 
 package races;
 
+import java.util.ArrayList;
+
+import charactergeneration.GenericTraitContainer;
+
 /**
  * The Gnome race in Dungeons and Dragons. 
  */
@@ -22,6 +26,13 @@ public class Gnome extends DndRace {
 									"Stone Camouflage", 
 									"Artificer’s Lore", 
 									"Tinker"};
+		
+		// The special trait of the Gnome race is the variety of Gnome types.
+		ArrayList<String> gnomishTypes = new ArrayList<String>(); 
+		gnomishTypes.add("Deep");
+		gnomishTypes.add("Rock");
+		this.specialTrait = new GenericTraitContainer<ArrayList<String>>(
+			gnomishTypes, "The variants of the Gnome race.");
 	}
 	
 	public String getRace() {
@@ -35,5 +46,8 @@ public class Gnome extends DndRace {
 	}
 	public String[] getTraits() {
 		return this.traits;
+	}
+	public GenericTraitContainer<?> getSpecialTrait() {
+		return this.specialTrait;
 	}
 }

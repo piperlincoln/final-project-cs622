@@ -8,7 +8,6 @@
 package charactergeneration;
 
 import java.util.Arrays;
-import java.util.Random;
 
 import classes.DndClass;
 import races.DndRace;
@@ -24,18 +23,8 @@ public class DndCharacter {
 	private DndRace race;
 	private DndClass dndClass;
 	
-	private int strength;
-	private int constitution;
-	private int dexterity;
-	private int intelligence;
-	private int wisdom;
-	private int charisma;
+	private int[] statistics = new int[6];  // Strength, Dexterity, Constitution, Intelligence, Wisdom, Charisma
 	
-	private final Random rand = new Random();
-	
-	/**
-	 * Constructor for the base character. 
-	 */
 	public DndCharacter(String name) {
 		this.name = name;
 	}
@@ -64,6 +53,33 @@ public class DndCharacter {
 		this.background = background;
 	}
 	
+	public int[] getStatistics() {
+		return this.statistics;
+	}
+	
+	/**
+	 * Calculate the six statistics for the character.
+	 */
+	public void calculateStatistics() {
+		// Calculate each of the six statistics.
+		int maxScoreIndex = 0;
+		for (int i = 0; i < 6; i++) {
+			statistics[i] = ScoreCalculator.calculateStats();
+			if (statistics[i] > statistics[maxScoreIndex]) {
+				maxScoreIndex = i;
+			}
+		}
+		
+		// Assign the maximum sum to the primary statistic of the class.
+		int scoreOne = statistics[maxScoreIndex];
+		int scoreTwo = statistics[this.dndClass.getPrimaryAbility()];
+		statistics[this.dndClass.getPrimaryAbility()] = scoreOne;
+		statistics[maxScoreIndex] = scoreTwo;
+	}
+	
+	/**
+	 * Display information about the character.
+	 */
 	public String display() {
 		String charDescription = "";
 		charDescription += "Name: " + name + "\n";
@@ -76,14 +92,19 @@ public class DndCharacter {
 			charDescription += "Languages: " + Arrays.toString(race.getLanguages()) + "\n";
 		}
 		charDescription += "Traits: " + Arrays.toString(race.getTraits()) + "\n";
-		charDescription += "Background: " + this.getBackground();
+		charDescription += "Background: " + this.getBackground() + "\n";
+		charDescription += "Statistics: " + 
+				"Strength (" + statistics[0] + "), " +
+				"Constitution (" + statistics[1] + "), " +
+				"Dexterity (" + statistics[2] + "), " +
+				"Intelligence (" + statistics[3] + "), " +
+				"Wisdom (" + statistics[4] + "), " +
+				"Charisma (" + statistics[5] + ")\n";
+		// Only display a special trait if it is applicable to this race.
+		if (race.getSpecialTrait() != null) {
+			charDescription += "Special Trait: " + race.getSpecialTrait().getTrait() + 
+					", Description: " + race.getSpecialTrait().getDescription();
+		}
 		return charDescription;
-	}
-	
-	/**
-	 * Roll a d20 to help determine the statistics of the character. 
-	 */
-	public int rollDice() {
-		return rand.nextInt(20) + 1;
 	}
 }

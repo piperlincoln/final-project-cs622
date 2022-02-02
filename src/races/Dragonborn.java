@@ -7,6 +7,10 @@
 
 package races;
 
+import java.util.HashMap;
+
+import charactergeneration.GenericTraitContainer;
+
 /**
  * The Dragonborn race in Dungeons and Dragons. 
  */
@@ -20,6 +24,14 @@ public class Dragonborn extends DndRace {
 		this.traits = new String[] {"Draconic Ancestry", 
 									"Breath Weapon", 
 									"Damage Resistance"};
+		
+		// The special trait of the Dragonborn race is the variety of colors and essences.
+		HashMap<String, String> draconicTypes = new HashMap<String, String>();
+		draconicTypes.put("Green", "Acid");
+		draconicTypes.put("Blue", "Lightning");
+		draconicTypes.put("Gold", "Fire");
+		this.specialTrait = new GenericTraitContainer<HashMap<String, String>>(
+			draconicTypes, "The variants of the Dragonborn race.");
 	}
 	
 	public String getRace() {
@@ -33,5 +45,8 @@ public class Dragonborn extends DndRace {
 	}
 	public String[] getTraits() {
 		return this.traits;
+	}
+	public GenericTraitContainer<?> getSpecialTrait() {
+		return this.specialTrait;
 	}
 }

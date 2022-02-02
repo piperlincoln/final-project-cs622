@@ -16,7 +16,7 @@ public class Fighter extends DndClass{
 		this.dndClass = "Fighter";
 		this.description = "A master of martial combat, skilled with a variety of weapons and armor.";
 		this.hitPoints = 10;
-		this.primaryAbility = "Strength";
+		this.primaryAbility = 0;  // The primary ability of a Fighter is Strength.
 	}
 	
 	public String getDndClass() {
@@ -30,5 +30,8 @@ public class Fighter extends DndClass{
 	}
 	public void setProficiencies(String[] proficiencies) {
 		this.proficiencies = proficiencies;
+	}
+	public int getPrimaryAbility() {
+		return this.primaryAbility;
 	}
 }

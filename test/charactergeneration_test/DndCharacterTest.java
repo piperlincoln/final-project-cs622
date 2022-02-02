@@ -8,7 +8,6 @@
 package charactergeneration_test;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
@@ -43,9 +42,17 @@ public class DndCharacterTest {
 	}
 	
 	@Test
-	public void rollDiceTest() {
-		int diceRoll = testCharacter.rollDice();
-		assertTrue(diceRoll > 0);
-		assertTrue(diceRoll < 21);
+	public void calculateStatisticsTest() {
+		testCharacter.setDndClass(new Wizard());
+		testCharacter.calculateStatistics();
+		// Find the maximum statistic and make sure it's assigned to the right location.
+		int maxScoreIndex = 0;
+		for (int i = 0; i < 6; i++) {
+			if (testCharacter.getStatistics()[i] > testCharacter.getStatistics()[maxScoreIndex]) {
+				maxScoreIndex = i;
+			}
+		}
+		// For the Wizard class, the maximum statistic should be Intelligence.
+		assertEquals(maxScoreIndex, 3);
 	}
 }

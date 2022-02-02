@@ -7,6 +7,8 @@
 
 package races;
 
+import charactergeneration.GenericTraitContainer;
+
 /**
  * The Half-Orc race in Dungeons and Dragons. 
  */
@@ -35,5 +37,8 @@ public class HalfOrc extends DndRace {
 	}
 	public String[] getTraits() {
 		return this.traits;
+	}
+	public GenericTraitContainer<?> getSpecialTrait() {
+		return null;
 	}
 }

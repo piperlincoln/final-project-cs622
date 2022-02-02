@@ -7,6 +7,8 @@
 
 package races;
 
+import charactergeneration.GenericTraitContainer;
+
 /**
  * The Half-Elf race in Dungeons and Dragons. 
  */
@@ -33,5 +35,8 @@ public class HalfElf extends DndRace {
 	}
 	public String[] getTraits() {
 		return this.traits;
+	}
+	public GenericTraitContainer<?> getSpecialTrait() {
+		return null;
 	}
 }

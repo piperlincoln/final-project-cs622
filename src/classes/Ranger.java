@@ -16,7 +16,7 @@ public class Ranger extends DndClass{
 		this.dndClass = "Ranger";
 		this.description = "A warrior who combats threats on the edges of civilization.";
 		this.hitPoints = 10;
-		this.primaryAbility = "Dexterity";
+		this.primaryAbility = 2;  // The primary ability of a Ranger is Dexterity.
 	}
 	
 	public String getDndClass() {
@@ -30,5 +30,8 @@ public class Ranger extends DndClass{
 	}
 	public void setProficiencies(String[] proficiencies) {
 		this.proficiencies = proficiencies;
+	}
+	public int getPrimaryAbility() {
+		return this.primaryAbility;
 	}
 }

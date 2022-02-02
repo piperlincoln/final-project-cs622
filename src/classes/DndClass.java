@@ -15,7 +15,7 @@ public abstract class DndClass {
 	protected String dndClass;         // The name of the class.
 	protected String description;      // The description of the class.
 	protected int hitPoints;           // The initial health level of the class.
-	protected String primaryAbility;   // The primary statistic of the class.
+	protected int primaryAbility;      // The primary statistic of the class.
 	protected String[] proficiencies;  // The technical proficiencies of the class.
 	
 	public DndClass() {
@@ -26,4 +26,5 @@ public abstract class DndClass {
 	public abstract String getDescription();
 	public abstract String[] getProficiencies();
 	public abstract void setProficiencies(String[] proficiencies);
+	public abstract int getPrimaryAbility();
 }

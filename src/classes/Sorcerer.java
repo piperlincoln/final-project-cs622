@@ -16,7 +16,7 @@ public class Sorcerer extends DndClass{
 		this.dndClass = "Sorcerer";
 		this.description = "A spellcaster who draws on inherent magic from a gift or bloodline.";
 		this.hitPoints = 6;
-		this.primaryAbility = "Charisma";
+		this.primaryAbility = 5;  // The primary ability of a Sorcerer is Charisma.
 	}
 	
 	public String getDndClass() {
@@ -30,5 +30,8 @@ public class Sorcerer extends DndClass{
 	}
 	public void setProficiencies(String[] proficiencies) {
 		this.proficiencies = proficiencies;
+	}
+	public int getPrimaryAbility() {
+		return this.primaryAbility;
 	}
 }

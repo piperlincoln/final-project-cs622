@@ -7,6 +7,10 @@
 
 package races;
 
+import java.util.ArrayList;
+
+import charactergeneration.GenericTraitContainer;
+
 /**
  * The Dwarf race in Dungeons and Dragons. 
  */
@@ -22,6 +26,13 @@ public class Dwarf extends DndRace {
 									"Tool Proficiency", 
 									"Stonecunning", 
 									"Dwarven Toughness"};
+		
+		// The special trait of the Dwarf race is the variety of Dwarf types.
+		ArrayList<String> dwarvenTypes = new ArrayList<String>(); 
+		dwarvenTypes.add("Hill");
+		dwarvenTypes.add("Mountain");
+		this.specialTrait = new GenericTraitContainer<ArrayList<String>>(
+			dwarvenTypes, "The variants of the Dwarf race.");
 	}
 	
 	public String getRace() {
@@ -35,5 +46,8 @@ public class Dwarf extends DndRace {
 	}
 	public String[] getTraits() {
 		return this.traits;
+	}
+	public GenericTraitContainer<?> getSpecialTrait() {
+		return this.specialTrait;
 	}
 }

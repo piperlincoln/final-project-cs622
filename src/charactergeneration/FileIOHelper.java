@@ -20,28 +20,34 @@ import java.util.Scanner;
  */
 public class FileIOHelper {
 	
+	/**
+	 * Read an input file at the specified location and return each line in an ArrayList. 
+	 */
 	public static ArrayList<String> readFileData(String fileLocation) throws FileNotFoundException {
 		// Initialize a scanner to read race or class data from an input file.
-		Scanner infile = new Scanner(new File(fileLocation)).useDelimiter("\\n");
-		
-		// Add the race or class name and description into a list.
-		ArrayList<String> dataList = new ArrayList<String>();
-		while (infile.hasNext()) {         
-			dataList.add(infile.next());
+		try (Scanner infile = new Scanner(new File(fileLocation)).useDelimiter("\\n")) {
+			// Add the race or class name and description into a list.
+			ArrayList<String> dataList = new ArrayList<String>();
+			while (infile.hasNext()) {         
+				dataList.add(infile.next());
+			}
+			
+			// Return the list of races or classes in the file.
+			return dataList;
 		}
-		
-		// Return the list of races or classes in the file.
-		infile.close();
-		return dataList;
 	}
 	
+	/**
+	 * Write the character data to the output file at the specified location. 
+	 */
 	public static void writeFileData(String fileLocation, String characterData) throws IOException {
-		// Initialize a file writer to write the character information to an output file.
-		FileWriter fr = new FileWriter(fileLocation);
-		BufferedWriter br = new BufferedWriter(fr);
-		
-		// Write the information about the D&D character to the specified file location.
-		br.write(characterData);
-		br.close();
+		try (FileWriter fr = new FileWriter(fileLocation)) {
+			// Initialize a file writer to write the character information to an output file.
+			BufferedWriter br = new BufferedWriter(fr);
+			
+			// Write the information about the D&D character to the specified file location.
+			br.write(characterData);
+			br.close();
+		}
 	}
 }

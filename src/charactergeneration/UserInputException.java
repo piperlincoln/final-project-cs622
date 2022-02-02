@@ -12,13 +12,13 @@ package charactergeneration;
  */
 public class UserInputException extends Exception {
 	
-	private final String errorMessage;
+	private static final long serialVersionUID = 1L;
 	
 	public UserInputException(String errorMessage) {
-		this.errorMessage = errorMessage;
+		super(errorMessage);
 	}
 	
 	public String toString(){ 
-		return ("Error: User Input Must be Integer from List. " + errorMessage) ;
+		return ("Error: User Input Must be Integer from List. " + this.getMessage()) ;
 	}
 }

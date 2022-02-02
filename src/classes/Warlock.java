@@ -16,7 +16,7 @@ public class Warlock extends DndClass{
 		this.dndClass = "Warlock";
 		this.description = "A wielder of magic that is derived from a bargain with an extraplanar entity.";
 		this.hitPoints = 8;
-		this.primaryAbility = "Charisma";
+		this.primaryAbility = 5;  // The primary ability of a Warlock is Charisma.
 	}
 	
 	public String getDndClass() {
@@ -30,5 +30,8 @@ public class Warlock extends DndClass{
 	}
 	public void setProficiencies(String[] proficiencies) {
 		this.proficiencies = proficiencies;
+	}
+	public int getPrimaryAbility() {
+		return this.primaryAbility;
 	}
 }

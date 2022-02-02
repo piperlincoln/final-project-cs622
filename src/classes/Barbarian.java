@@ -16,7 +16,7 @@ public class Barbarian extends DndClass{
 		this.dndClass = "Barbarian";
 		this.description = "A fierce warrior of primitive background who can enter a battle rage.";
 		this.hitPoints = 12;
-		this.primaryAbility = "Strength";
+		this.primaryAbility = 0;  // The primary ability of a Barbarian is Strength.
 	}
 	
 	public String getDndClass() {
@@ -30,5 +30,8 @@ public class Barbarian extends DndClass{
 	}
 	public void setProficiencies(String[] proficiencies) {
 		this.proficiencies = proficiencies;
+	}
+	public int getPrimaryAbility() {
+		return this.primaryAbility;
 	}
 }
