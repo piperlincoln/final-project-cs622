@@ -15,6 +15,8 @@ import charactergeneration.GenericTraitContainer;
  * The Gnome race in Dungeons and Dragons. 
  */
 public class Gnome extends DndRace { 
+
+	private static final long serialVersionUID = 1L;
 	
 	public Gnome() {
 		this.race = "Gnome";

@@ -15,6 +15,8 @@ import charactergeneration.GenericTraitContainer;
  * The Dwarf race in Dungeons and Dragons. 
  */
 public class Dwarf extends DndRace {
+
+	private static final long serialVersionUID = 1L;
 	
 	public Dwarf() {
 		this.race = "Dwarf";

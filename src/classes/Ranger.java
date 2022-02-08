@@ -10,13 +10,17 @@ package classes;
 /**
  * The Ranger class in Dungeons and Dragons. 
  */
-public class Ranger extends DndClass{
+public class Ranger extends DndClass {
+
+	private static final long serialVersionUID = 1L;
 	
 	public Ranger() {
 		this.dndClass = "Ranger";
 		this.description = "A warrior who combats threats on the edges of civilization.";
 		this.hitPoints = 10;
 		this.primaryAbility = 2;  // The primary ability of a Ranger is Dexterity.
+		this.proficiencies = new String[] {"Animal Handling", "Athletics", "Insight", "Investigation", 
+				"Nature", "Perception", "Stealth", "Survival"};
 	}
 	
 	public String getDndClass() {

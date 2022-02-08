@@ -10,13 +10,16 @@ package classes;
 /**
  * The Paladin class in Dungeons and Dragons. 
  */
-public class Paladin extends DndClass{
+public class Paladin extends DndClass {
+
+	private static final long serialVersionUID = 1L;
 	
 	public Paladin() {
 		this.dndClass = "Paladin";
 		this.description = "A holy warrior bound to a sacred oath.";
 		this.hitPoints = 10;
 		this.primaryAbility = 2;  // The primary ability of a Paladin is Dexterity.
+		this.proficiencies = new String[] {"Athletics", "Insight", "Intimidation", "Medicine", "Persuasion", "Religion"};
 	}
 	
 	public String getDndClass() {

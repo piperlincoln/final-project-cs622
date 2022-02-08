@@ -15,6 +15,8 @@ import charactergeneration.GenericTraitContainer;
  * The Dragonborn race in Dungeons and Dragons. 
  */
 public class Dragonborn extends DndRace {
+
+	private static final long serialVersionUID = 1L;
 	
 	public Dragonborn() {
 		this.race = "Dragonborn";

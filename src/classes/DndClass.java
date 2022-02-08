@@ -7,10 +7,14 @@
 
 package classes;
 
+import java.io.Serializable;
+
 /**
  * A character class in Dungeons and Dragons. 
  */
-public abstract class DndClass {
+public abstract class DndClass implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
 	
 	protected String dndClass;         // The name of the class.
 	protected String description;      // The description of the class.

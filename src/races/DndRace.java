@@ -7,12 +7,16 @@
 
 package races;
 
+import java.io.Serializable;
+
 import charactergeneration.GenericTraitContainer;
 
 /**
  * A character race in Dungeons and Dragons. 
  */
-public abstract class DndRace {
+public abstract class DndRace implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
 	
 	protected String race;           // The name of the race.
 	protected String description;    // The description of the race.

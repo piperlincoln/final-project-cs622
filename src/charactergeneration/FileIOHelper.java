@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
- * A class to assist in reading input files and writing output files. 
+ * A class to assist with reading input files and writing output files. 
  */
 public class FileIOHelper {
 	

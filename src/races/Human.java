@@ -13,6 +13,8 @@ import charactergeneration.GenericTraitContainer;
  * The Human race in Dungeons and Dragons. 
  */
 public class Human extends DndRace {
+
+	private static final long serialVersionUID = 1L;
 	
 	public Human() {
 		this.race = "Human";

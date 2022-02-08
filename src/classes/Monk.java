@@ -10,7 +10,9 @@ package classes;
 /**
  * The Monk class in Dungeons and Dragons. 
  */
-public class Monk extends DndClass{
+public class Monk extends DndClass {
+
+	private static final long serialVersionUID = 1L;
 	
 	public Monk() {
 		this.dndClass = "Monk";
@@ -18,6 +20,7 @@ public class Monk extends DndClass{
 				+ "body in pursuit of physical and spiritual perfection.";
 		this.hitPoints = 8;
 		this.primaryAbility = 2;  // The primary ability of a Monk is Dexterity.
+		this.proficiencies = new String[] {"Acrobatics", "Athletics", "History", "Insight", "Religion", "Stealth"};
 	}
 	
 	public String getDndClass() {

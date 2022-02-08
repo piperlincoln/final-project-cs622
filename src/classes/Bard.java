@@ -10,13 +10,18 @@ package classes;
 /**
  * The Bard class in Dungeons and Dragons. 
  */
-public class Bard extends DndClass{
+public class Bard extends DndClass {
+	
+	private static final long serialVersionUID = 1L;
 	
 	public Bard() {
 		this.dndClass = "Bard";
 		this.description = "An inspiring magician whose power echoes the music of creation.";
 		this.hitPoints = 8;
 		this.primaryAbility = 5;  // The primary ability of a Bard is Charisma.
+		this.proficiencies = new String[] {"Acrobatics", "Animal Handling", "Arcana", "Athletics",
+				"Deception", "History", "Insight", "Intimidation", "Investigation", "Medicine", "Nature", 
+				"Perception", "Performance", "Persuasion", "Religion", "Sleight of Hand", "Stealth", "Survival"};
 	}
 	
 	public String getDndClass() {

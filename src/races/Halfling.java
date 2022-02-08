@@ -13,6 +13,8 @@ import charactergeneration.GenericTraitContainer;
  * The Halfling race in Dungeons and Dragons. 
  */
 public class Halfling extends DndRace {
+
+	private static final long serialVersionUID = 1L;
 	
 	public Halfling() {
 		this.race = "Halfling";

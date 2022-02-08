@@ -10,13 +10,17 @@ package classes;
 /**
  * The Rogue class in Dungeons and Dragons. 
  */
-public class Rogue extends DndClass{
+public class Rogue extends DndClass {
+
+	private static final long serialVersionUID = 1L;
 	
 	public Rogue() {
 		this.dndClass = "Rogue";
 		this.description = "A scoundrel who uses stealth and trickery to overcome obstacles and enemies.";
 		this.hitPoints = 8;
 		this.primaryAbility = 2;  // The primary ability of a Rogue is Dexterity.
+		this.proficiencies = new String[] {"Acrobatics", "Athletics", "Deception", "Insight", "Intimidation", 
+				"Investigation", "Perception", "Performance", "Persuasion", "Sleight of Hand", "Stealth"};
 	}
 	
 	public String getDndClass() {

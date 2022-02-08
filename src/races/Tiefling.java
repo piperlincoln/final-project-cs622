@@ -13,6 +13,8 @@ import charactergeneration.GenericTraitContainer;
  * The Tiefling race in Dungeons and Dragons. 
  */
 public class Tiefling extends DndRace {
+
+	private static final long serialVersionUID = 1L;
 	
 	public Tiefling() {
 		this.race = "Tiefling";

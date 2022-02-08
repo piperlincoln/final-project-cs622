@@ -10,13 +10,16 @@ package classes;
 /**
  * The Wizard class in Dungeons and Dragons. 
  */
-public class Wizard extends DndClass{
+public class Wizard extends DndClass {
+
+	private static final long serialVersionUID = 1L;
 	
 	public Wizard() {
 		this.dndClass = "Wizard";
 		this.description = "A scholarly magic-user capable of manipulating the structures of reality.";
 		this.hitPoints = 6;
 		this.primaryAbility = 3;  // The primary ability of a Wizard is Intelligence.
+		this.proficiencies = new String[] {"Arcana", "History", "Insight", "Investigation", "Medicine", "Religion"};
 	}
 	
 	public String getDndClass() {

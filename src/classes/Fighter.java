@@ -10,13 +10,17 @@ package classes;
 /**
  * The Fighter class in Dungeons and Dragons. 
  */
-public class Fighter extends DndClass{
+public class Fighter extends DndClass {
+	
+	private static final long serialVersionUID = 1L;
 	
 	public Fighter() {
 		this.dndClass = "Fighter";
 		this.description = "A master of martial combat, skilled with a variety of weapons and armor.";
 		this.hitPoints = 10;
 		this.primaryAbility = 0;  // The primary ability of a Fighter is Strength.
+		this.proficiencies = new String[] {"Acrobatics", "Animal Handling", "Athletics", "History", 
+				"Insight", "Intimidation", "Perception", "Survival"};
 	}
 	
 	public String getDndClass() {

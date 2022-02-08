@@ -13,6 +13,8 @@ import charactergeneration.GenericTraitContainer;
  * The Half-Elf race in Dungeons and Dragons. 
  */
 public class HalfElf extends DndRace {
+
+	private static final long serialVersionUID = 1L;
 	
 	public HalfElf() {
 		this.race = "Half-Elf";

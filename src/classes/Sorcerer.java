@@ -10,13 +10,16 @@ package classes;
 /**
  * The Sorcerer class in Dungeons and Dragons. 
  */
-public class Sorcerer extends DndClass{
+public class Sorcerer extends DndClass {
+
+	private static final long serialVersionUID = 1L;
 	
 	public Sorcerer() {
 		this.dndClass = "Sorcerer";
 		this.description = "A spellcaster who draws on inherent magic from a gift or bloodline.";
 		this.hitPoints = 6;
 		this.primaryAbility = 5;  // The primary ability of a Sorcerer is Charisma.
+		this.proficiencies = new String[] {"Arcana", "Deception", "Insight", "Intimidation", "Persuasion", "Religion"};
 	}
 	
 	public String getDndClass() {

@@ -92,6 +92,7 @@ public class DndCharacter {
 			charDescription += "Languages: " + Arrays.toString(race.getLanguages()) + "\n";
 		}
 		charDescription += "Traits: " + Arrays.toString(race.getTraits()) + "\n";
+		charDescription += "Proficiencies: " + Arrays.toString(dndClass.getProficiencies()) + "\n";
 		charDescription += "Background: " + this.getBackground() + "\n";
 		charDescription += "Statistics: " + 
 				"Strength (" + statistics[0] + "), " +

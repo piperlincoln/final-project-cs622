@@ -13,6 +13,8 @@ import charactergeneration.GenericTraitContainer;
  * The Half-Orc race in Dungeons and Dragons. 
  */
 public class HalfOrc extends DndRace { 
+
+	private static final long serialVersionUID = 1L;
 	
 	public HalfOrc() {
 		this.race = "Half-Orc";

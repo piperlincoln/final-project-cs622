@@ -7,10 +7,14 @@
 
 package charactergeneration;
 
+import java.io.Serializable;
+
 /**
  * A generic class to hold special information about a character. 
  */
-public class GenericTraitContainer<T> {
+public class GenericTraitContainer<T> implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 	
 	private T trait;               // The special trait of the character.
 	private String description;    // A description of the special trait.

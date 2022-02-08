@@ -13,6 +13,8 @@ import charactergeneration.GenericTraitContainer;
  * The Elf race in Dungeons and Dragons. 
  */
 public class Elf extends DndRace { 
+
+	private static final long serialVersionUID = 1L;
 	
 	public Elf() {
 		this.race = "Elf";

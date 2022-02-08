@@ -13,7 +13,9 @@ import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import classes.DndClass;
 import classes.DndClassFactory;
+import races.DndRace;
 import races.DndRaceFactory;
 
 /**
@@ -25,9 +27,16 @@ public class CharacterGeneration {
 	private static ArrayList<String> classList;        // The list of classes the user can choose from.
 	private static ArrayList<String> backgroundList;   // The list of backgrounds the user can choose from.
 	
+	private static String raceObjectLocation = "src/charactergeneration/raceFile.dat";
+	private static String classObjectLocation = "src/charactergeneration/classFile.dat";
+	
 	private static String lineSeparator = "-----------------------------------------------------------------------------";
 	
 	public static void main(String[] args) {
+		// Initialize the helper class for object serialization.
+		SerializationHelper serializationHelper = new SerializationHelper();
+		
+		
 		// Initialize a scanner to read user input from the console.
 		try (Scanner reader = new Scanner(System.in)) {
 			// Prompt the user to enter a name and initialize their character.
@@ -60,8 +69,9 @@ public class CharacterGeneration {
 			// Create a new instance of the race that the user chose for their character.
 			DndRaceFactory raceFactory = new DndRaceFactory();
 			try {
-				character.setRace(raceFactory.newRace(raceList.get(userRaceChoice - 1).split(":")[0]));
-			} catch (UserInputException e) {
+				DndRace raceObject = raceFactory.newRace(raceList.get(userRaceChoice - 1).split(":")[0]);
+				serializationHelper.writeObjectData(raceObjectLocation, raceObject);
+			} catch (UserInputException | IOException e) {
 				System.out.println(e.toString());
 				return;
 			}
@@ -90,9 +100,32 @@ public class CharacterGeneration {
 			
 			// Create a new instance of the class that the user chose for their character.
 			DndClassFactory classFactory = new DndClassFactory();
+			DndClass classObject = null;
 			try {
-				character.setDndClass(classFactory.newClass(classList.get(userClassChoice - 1).split(":")[0]));
+				classObject = classFactory.newClass(classList.get(userClassChoice - 1).split(":")[0]);
 			} catch (UserInputException e) {
+				System.out.println(e.toString());
+				return;
+			}
+			
+			// Prompt the user to choose two proficiencies for their character.
+			System.out.println("\nPlease choose two proficiencies for your character from the choices below, separated by a comma.");
+			System.out.println(lineSeparator);
+			for (int i = 0; i < classObject.getProficiencies().length; i++) {
+				System.out.println((i + 1) + ". " + classObject.getProficiencies()[i]);
+			}
+			
+			// Ensure the user entered two integers.
+			ArrayList<Integer> userProficiencyChoice = new ArrayList<Integer>();
+			try {
+				for (String str : reader.next().split(",")) {
+					userProficiencyChoice.add(Integer.valueOf(str.trim()) - 1);
+				}
+				classObject.setProficiencies(new String[] {classObject.getProficiencies()[userProficiencyChoice.get(0)], 
+						classObject.getProficiencies()[userProficiencyChoice.get(1)]});
+				serializationHelper.writeObjectData(classObjectLocation, classObject);
+			} catch (InputMismatchException | IOException | IndexOutOfBoundsException e) {
+				System.out.println("Please enter two integers separated by a comma.");
 				System.out.println(e.toString());
 				return;
 			}
@@ -120,6 +153,15 @@ public class CharacterGeneration {
 				return;
 			}
 			
+			// Retrieve the race and class information about the character.
+			try {
+				character.setRace((DndRace) serializationHelper.readRaceObjectData(raceObjectLocation));
+				character.setDndClass((DndClass) serializationHelper.readClassObjectData(classObjectLocation));
+			} catch (IOException | ClassNotFoundException e) {
+				e.printStackTrace();
+				return;
+			}
+			
 			// Calculate the statistics for the character.
 			character.calculateStatistics();
 			
@@ -137,6 +179,7 @@ public class CharacterGeneration {
 			System.out.println("Congratulations, your character has been created!\n" 
 					+ "Please refer to the official D&D 5e Player’s Handbook for more information about your character’s statistics during gameplay.\n" 
 					+ "The summary shown below has been saved in a file at " + fileLocation + ".");
+			System.out.println(lineSeparator);
 			System.out.println(characterInformation);
 		}
 	}

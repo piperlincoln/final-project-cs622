@@ -10,13 +10,16 @@ package classes;
 /**
  * The Cleric class in Dungeons and Dragons. 
  */
-public class Cleric extends DndClass{
+public class Cleric extends DndClass {
+	
+	private static final long serialVersionUID = 1L;
 	
 	public Cleric() {
 		this.dndClass = "Cleric";
 		this.description = "A priestly champion who wields divine magic in service of a higher power.";
 		this.hitPoints = 8;
 		this.primaryAbility = 4;  // The primary ability of a Cleric is Wisdom.
+		this.proficiencies = new String[] {"History", "Insight", "Medicine", "Persuasion", "Religion"};
 	}
 	
 	public String getDndClass() {
