@@ -7,25 +7,32 @@
 
 package charactergeneration_test;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
 import charactergeneration.ScoreCalculator;
+import charactergeneration.ScoreCalculator.RollDice;
 
 public class ScoreCalculatorTest {
 	
 	@Test
 	public void calculateStatsTest() {
-		int statistic = ScoreCalculator.calculateStats();
+		int statistic = new ScoreCalculator().calculateStats();
 		assertTrue(statistic > 2);
 		assertTrue(statistic < 19);
 	}
 	
 	@Test
 	public void rollDiceTest() {
-		int diceRoll = ScoreCalculator.rollDice();
-		assertTrue(diceRoll > 0);
-		assertTrue(diceRoll < 7);
+		ScoreCalculator scoreCalculator = new ScoreCalculator();
+		RollDice ThreadOne = scoreCalculator.new RollDice(1);
+		ThreadOne.start();
+		try {
+			assertEquals(ThreadOne.getThreadId(), 1);
+			ThreadOne.join();
+		} catch (InterruptedException e) {}
+		assertEquals(scoreCalculator.diceRolls.size(), 1);
 	}
 }

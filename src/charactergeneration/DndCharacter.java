@@ -64,7 +64,7 @@ public class DndCharacter {
 		// Calculate each of the six statistics.
 		int maxScoreIndex = 0;
 		for (int i = 0; i < 6; i++) {
-			statistics[i] = ScoreCalculator.calculateStats();
+			statistics[i] = new ScoreCalculator().calculateStats();
 			if (statistics[i] > statistics[maxScoreIndex]) {
 				maxScoreIndex = i;
 			}
