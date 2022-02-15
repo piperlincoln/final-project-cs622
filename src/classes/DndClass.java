@@ -22,6 +22,8 @@ public abstract class DndClass implements Serializable{
 	protected int primaryAbility;      // The primary statistic of the class.
 	protected String[] proficiencies;  // The technical proficiencies of the class.
 	
+	protected int[] recommendedProficiencies;  // The recommended proficiencies for this class.
+	
 	public DndClass() {
 
 	}
@@ -31,4 +33,5 @@ public abstract class DndClass implements Serializable{
 	public abstract String[] getProficiencies();
 	public abstract void setProficiencies(String[] proficiencies);
 	public abstract int getPrimaryAbility();
+	public abstract String[] getRecommendation();
 }

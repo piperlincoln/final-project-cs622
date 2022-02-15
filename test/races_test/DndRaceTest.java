@@ -39,5 +39,12 @@ public class DndRaceTest {
 	public void getTraitsTest() {
 		assertEquals(testRace.getTraits().length, 6);
 	}
-
+	
+	@Test
+	public void getRecommendationTest() {
+		String[] classRecommendations = testRace.getRecommendation();
+		assertEquals(classRecommendations.length, 2);
+		assertEquals(classRecommendations[0], "Paladin");
+		assertEquals(classRecommendations[1], "Rogue");
+	}
 }

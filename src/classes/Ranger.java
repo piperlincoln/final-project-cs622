@@ -21,6 +21,7 @@ public class Ranger extends DndClass {
 		this.primaryAbility = 2;  // The primary ability of a Ranger is Dexterity.
 		this.proficiencies = new String[] {"Animal Handling", "Athletics", "Insight", "Investigation", 
 				"Nature", "Perception", "Stealth", "Survival"};
+		this.recommendedProficiencies = new int[] {3, 6};
 	}
 	
 	public String getDndClass() {
@@ -37,5 +38,12 @@ public class Ranger extends DndClass {
 	}
 	public int getPrimaryAbility() {
 		return this.primaryAbility;
+	}
+	public String[] getRecommendation() {
+		String[] proficiencyList = new String[this.recommendedProficiencies.length];
+		for (int i = 0; i < proficiencyList.length; i++) {
+			proficiencyList[i] = this.proficiencies[this.recommendedProficiencies[i]];
+		}
+		return proficiencyList;
 	}
 }

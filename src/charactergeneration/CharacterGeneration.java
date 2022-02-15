@@ -10,6 +10,7 @@ package charactergeneration;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -68,8 +69,9 @@ public class CharacterGeneration {
 			
 			// Create a new instance of the race that the user chose for their character.
 			DndRaceFactory raceFactory = new DndRaceFactory();
+			DndRace raceObject = null;
 			try {
-				DndRace raceObject = raceFactory.newRace(raceList.get(userRaceChoice - 1).split(":")[0]);
+				raceObject = raceFactory.newRace(raceList.get(userRaceChoice - 1).split(":")[0]);
 				serializationHelper.writeObjectData(raceObjectLocation, raceObject);
 			} catch (UserInputException | IOException e) {
 				System.out.println(e.toString());
@@ -80,6 +82,8 @@ public class CharacterGeneration {
 			try {
 				classList = FileIOHelper.readFileData("src/classes/DndClasses.txt");
 				System.out.println("\nPlease choose the class of your character from the twelve choices below.");
+				System.out.println("The recommended classes for " + raceObject.getRace() + 
+						           " are as follows: " + Arrays.toString(raceObject.getRecommendation()));
 				System.out.println(lineSeparator);
 				for (int i = 1; i <= classList.size(); i++) {
 					System.out.println(i + ". " + classList.get(i - 1));
@@ -110,6 +114,8 @@ public class CharacterGeneration {
 			
 			// Prompt the user to choose two proficiencies for their character.
 			System.out.println("\nPlease choose two proficiencies for your character from the choices below, separated by a comma.");
+			System.out.println("The recommended proficiencies for " + classObject.getDndClass() + 
+			           " are as follows: " + Arrays.toString(classObject.getRecommendation()));
 			System.out.println(lineSeparator);
 			for (int i = 0; i < classObject.getProficiencies().length; i++) {
 				System.out.println((i + 1) + ". " + classObject.getProficiencies()[i]);

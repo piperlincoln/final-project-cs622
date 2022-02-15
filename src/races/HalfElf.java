@@ -24,6 +24,7 @@ public class HalfElf extends DndRace {
 		this.traits = new String[] {"Darkvision", 
 									"Fey Ancestry", 
 									"Skill Versatility"};
+		this.recommendedClasses = new String[] {"Cleric", "Fighter", "Monk", "Ranger", "Rogue"};
 	}
 	
 	public String getRace() {
@@ -40,5 +41,8 @@ public class HalfElf extends DndRace {
 	}
 	public GenericTraitContainer<?> getSpecialTrait() {
 		return null;
+	}
+	public String[] getRecommendation() {
+		return this.recommendedClasses;
 	}
 }

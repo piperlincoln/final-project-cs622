@@ -35,6 +35,7 @@ public class Gnome extends DndRace {
 		gnomishTypes.add("Rock");
 		this.specialTrait = new GenericTraitContainer<ArrayList<String>>(
 			gnomishTypes, "The variants of the Gnome race.");
+		this.recommendedClasses = new String[] {"Druid", "Ranger"};
 	}
 	
 	public String getRace() {
@@ -51,5 +52,8 @@ public class Gnome extends DndRace {
 	}
 	public GenericTraitContainer<?> getSpecialTrait() {
 		return this.specialTrait;
+	}
+	public String[] getRecommendation() {
+		return this.recommendedClasses;
 	}
 }

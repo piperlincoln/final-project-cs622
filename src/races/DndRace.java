@@ -23,6 +23,8 @@ public abstract class DndRace implements Serializable {
 	protected String[] languages;    // The languages spoken by the race.
 	protected String[] traits;       // The primary traits of the race.
 	
+	protected String[] recommendedClasses;    // The recommended classes for this race.
+	
 	/**
 	 * A special trait about this race. 
 	 */
@@ -38,4 +40,5 @@ public abstract class DndRace implements Serializable {
 	public abstract String[] getLanguages();
 	public abstract String[] getTraits();
 	public abstract GenericTraitContainer<?> getSpecialTrait();
+	public abstract String[] getRecommendation();
 }

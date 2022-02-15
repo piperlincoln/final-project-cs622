@@ -35,6 +35,7 @@ public class Dwarf extends DndRace {
 		dwarvenTypes.add("Mountain");
 		this.specialTrait = new GenericTraitContainer<ArrayList<String>>(
 			dwarvenTypes, "The variants of the Dwarf race.");
+		this.recommendedClasses = new String[] {"Paladin", "Rogue"};
 	}
 	
 	public String getRace() {
@@ -51,5 +52,8 @@ public class Dwarf extends DndRace {
 	}
 	public GenericTraitContainer<?> getSpecialTrait() {
 		return this.specialTrait;
+	}
+	public String[] getRecommendation() {
+		return this.recommendedClasses;
 	}
 }

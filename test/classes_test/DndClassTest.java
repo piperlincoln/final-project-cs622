@@ -36,4 +36,12 @@ public class DndClassTest {
 		assertEquals(proficiencies[0], "Animal Handling");
 		assertEquals(proficiencies[1], "Athletics");
 	}
+	
+	@Test
+	public void getRecommendationTest() {
+		String[] proficiencyRecommendations = testClass.getRecommendation();
+		assertEquals(proficiencyRecommendations.length, 2);
+		assertEquals(proficiencyRecommendations[0], "Athletics");
+		assertEquals(proficiencyRecommendations[1], "Intimidation");
+	}
 }

@@ -20,6 +20,7 @@ public class Sorcerer extends DndClass {
 		this.hitPoints = 6;
 		this.primaryAbility = 5;  // The primary ability of a Sorcerer is Charisma.
 		this.proficiencies = new String[] {"Arcana", "Deception", "Insight", "Intimidation", "Persuasion", "Religion"};
+		this.recommendedProficiencies = new int[] {0, 1};
 	}
 	
 	public String getDndClass() {
@@ -36,5 +37,12 @@ public class Sorcerer extends DndClass {
 	}
 	public int getPrimaryAbility() {
 		return this.primaryAbility;
+	}
+	public String[] getRecommendation() {
+		String[] proficiencyList = new String[this.recommendedProficiencies.length];
+		for (int i = 0; i < proficiencyList.length; i++) {
+			proficiencyList[i] = this.proficiencies[this.recommendedProficiencies[i]];
+		}
+		return proficiencyList;
 	}
 }

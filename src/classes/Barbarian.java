@@ -20,6 +20,7 @@ public class Barbarian extends DndClass {
 		this.hitPoints = 12;
 		this.primaryAbility = 0;  // The primary ability of a Barbarian is Strength.
 		this.proficiencies = new String[] {"Animal Handling", "Athletics", "Intimidation", "Nature", "Perception", "Survival"};
+		this.recommendedProficiencies = new int[] {1, 2};
 	}
 	
 	public String getDndClass() {
@@ -36,5 +37,12 @@ public class Barbarian extends DndClass {
 	}
 	public int getPrimaryAbility() {
 		return this.primaryAbility;
+	}
+	public String[] getRecommendation() {
+		String[] proficiencyList = new String[this.recommendedProficiencies.length];
+		for (int i = 0; i < proficiencyList.length; i++) {
+			proficiencyList[i] = this.proficiencies[this.recommendedProficiencies[i]];
+		}
+		return proficiencyList;
 	}
 }

@@ -23,6 +23,7 @@ public class Human extends DndRace {
 				+ "innovators, the achievers, and the pioneers of the worlds.";
 		this.traits = new String[] {"+1 to All Ability Scores", 
 									"Extra Language"};
+		this.recommendedClasses = new String[] {"Cleric", "Fighter"};
 	}
 	
 	public String getRace() {
@@ -39,5 +40,8 @@ public class Human extends DndRace {
 	}
 	public GenericTraitContainer<?> getSpecialTrait() {
 		return null;
+	}
+	public String[] getRecommendation() {
+		return this.recommendedClasses;
 	}
 }

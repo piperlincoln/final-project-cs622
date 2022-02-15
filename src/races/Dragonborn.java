@@ -34,6 +34,7 @@ public class Dragonborn extends DndRace {
 		draconicTypes.put("Gold", "Fire");
 		this.specialTrait = new GenericTraitContainer<HashMap<String, String>>(
 			draconicTypes, "The variants of the Dragonborn race.");
+		this.recommendedClasses = new String[] {"Barbarian", "Bard", "Fighter", "Paladin", "Sorcerer", "Warlock"};
 	}
 	
 	public String getRace() {
@@ -50,5 +51,8 @@ public class Dragonborn extends DndRace {
 	}
 	public GenericTraitContainer<?> getSpecialTrait() {
 		return this.specialTrait;
+	}
+	public String[] getRecommendation() {
+		return this.recommendedClasses;
 	}
 }

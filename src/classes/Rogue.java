@@ -21,6 +21,7 @@ public class Rogue extends DndClass {
 		this.primaryAbility = 2;  // The primary ability of a Rogue is Dexterity.
 		this.proficiencies = new String[] {"Acrobatics", "Athletics", "Deception", "Insight", "Intimidation", 
 				"Investigation", "Perception", "Performance", "Persuasion", "Sleight of Hand", "Stealth"};
+		this.recommendedProficiencies = new int[] {2, 4};
 	}
 	
 	public String getDndClass() {
@@ -37,5 +38,12 @@ public class Rogue extends DndClass {
 	}
 	public int getPrimaryAbility() {
 		return this.primaryAbility;
+	}
+	public String[] getRecommendation() {
+		String[] proficiencyList = new String[this.recommendedProficiencies.length];
+		for (int i = 0; i < proficiencyList.length; i++) {
+			proficiencyList[i] = this.proficiencies[this.recommendedProficiencies[i]];
+		}
+		return proficiencyList;
 	}
 }

@@ -25,6 +25,7 @@ public class Halfling extends DndRace {
 									"Brave", 
 									"Halfling Nimbleness", 
 									"Naturally Stealthy"};
+		this.recommendedClasses = new String[] {"Barbarian", "Cleric", "Rogue"};
 	}
 	
 	public String getRace() {
@@ -41,5 +42,8 @@ public class Halfling extends DndRace {
 	}
 	public GenericTraitContainer<?> getSpecialTrait() {
 		return null;
+	}
+	public String[] getRecommendation() {
+		return this.recommendedClasses;
 	}
 }

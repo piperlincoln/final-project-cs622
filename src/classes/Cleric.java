@@ -20,6 +20,7 @@ public class Cleric extends DndClass {
 		this.hitPoints = 8;
 		this.primaryAbility = 4;  // The primary ability of a Cleric is Wisdom.
 		this.proficiencies = new String[] {"History", "Insight", "Medicine", "Persuasion", "Religion"};
+		this.recommendedProficiencies = new int[] {1, 4};
 	}
 	
 	public String getDndClass() {
@@ -36,5 +37,12 @@ public class Cleric extends DndClass {
 	}
 	public int getPrimaryAbility() {
 		return this.primaryAbility;
+	}
+	public String[] getRecommendation() {
+		String[] proficiencyList = new String[this.recommendedProficiencies.length];
+		for (int i = 0; i < proficiencyList.length; i++) {
+			proficiencyList[i] = this.proficiencies[this.recommendedProficiencies[i]];
+		}
+		return proficiencyList;
 	}
 }

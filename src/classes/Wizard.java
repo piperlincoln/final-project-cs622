@@ -20,6 +20,7 @@ public class Wizard extends DndClass {
 		this.hitPoints = 6;
 		this.primaryAbility = 3;  // The primary ability of a Wizard is Intelligence.
 		this.proficiencies = new String[] {"Arcana", "History", "Insight", "Investigation", "Medicine", "Religion"};
+		this.recommendedProficiencies = new int[] {0, 4};
 	}
 	
 	public String getDndClass() {
@@ -36,5 +37,12 @@ public class Wizard extends DndClass {
 	}
 	public int getPrimaryAbility() {
 		return this.primaryAbility;
+	}
+	public String[] getRecommendation() {
+		String[] proficiencyList = new String[this.recommendedProficiencies.length];
+		for (int i = 0; i < proficiencyList.length; i++) {
+			proficiencyList[i] = this.proficiencies[this.recommendedProficiencies[i]];
+		}
+		return proficiencyList;
 	}
 }

@@ -26,6 +26,7 @@ public class HalfOrc extends DndRace {
 									"Menacing", 
 									"Relentless Endurance", 
 									"Savage Attacks"};
+		this.recommendedClasses = new String[] {"Barbarian", "Ranger"};
 	}
 	
 	public String getRace() {
@@ -42,5 +43,8 @@ public class HalfOrc extends DndRace {
 	}
 	public GenericTraitContainer<?> getSpecialTrait() {
 		return null;
+	}
+	public String[] getRecommendation() {
+		return this.recommendedClasses;
 	}
 }

@@ -30,6 +30,8 @@ public class Elf extends DndRace {
 		
 		// The special trait of the Elf race is the weapon they are proficient with.
 		this.specialTrait = new GenericTraitContainer<String>("Longsword", "The weapon this character is proficient with.");
+		
+		this.recommendedClasses = new String[] {"Fighter", "Monk", "Ranger", "Rogue"};
 	}
 	
 	public String getRace() {
@@ -46,5 +48,8 @@ public class Elf extends DndRace {
 	}
 	public GenericTraitContainer<?> getSpecialTrait() {
 		return this.specialTrait;
+	}
+	public String[] getRecommendation() {
+		return this.recommendedClasses;
 	}
 }

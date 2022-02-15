@@ -21,6 +21,7 @@ public class Monk extends DndClass {
 		this.hitPoints = 8;
 		this.primaryAbility = 2;  // The primary ability of a Monk is Dexterity.
 		this.proficiencies = new String[] {"Acrobatics", "Athletics", "History", "Insight", "Religion", "Stealth"};
+		this.recommendedProficiencies = new int[] {3, 5};
 	}
 	
 	public String getDndClass() {
@@ -37,5 +38,12 @@ public class Monk extends DndClass {
 	}
 	public int getPrimaryAbility() {
 		return this.primaryAbility;
+	}
+	public String[] getRecommendation() {
+		String[] proficiencyList = new String[this.recommendedProficiencies.length];
+		for (int i = 0; i < proficiencyList.length; i++) {
+			proficiencyList[i] = this.proficiencies[this.recommendedProficiencies[i]];
+		}
+		return proficiencyList;
 	}
 }
