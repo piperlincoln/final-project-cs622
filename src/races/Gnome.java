@@ -41,18 +41,23 @@ public class Gnome extends DndRace {
 	public String getRace() {
 		return this.race;
 	}
+	
 	public String getDescription() {
 		return this.description;
 	}
+	
 	public String[] getLanguages() {
 		return this.languages;
 	}
+	
 	public String[] getTraits() {
 		return this.traits;
 	}
+	
 	public GenericTraitContainer<?> getSpecialTrait() {
 		return this.specialTrait;
 	}
+	
 	public String[] getRecommendation() {
 		return this.recommendedClasses;
 	}

@@ -31,5 +31,4 @@ public class DndClassFactoryTest {
 		});
 		assertTrue(exception.toString().contains("Unknown Class"));
 	}
-
 }

@@ -26,8 +26,8 @@ public class SerializationHelper {
 		public Object readObjectData(String objectLocation) throws FileNotFoundException, IOException, ClassNotFoundException;
 	}
 	
-	private ObjectSerialization dndRaceGeneration;
-	private ObjectSerialization dndClassGeneration;
+	private ObjectSerialization dndRaceGeneration;   // The lambda function for reading DndRace information.
+	private ObjectSerialization dndClassGeneration;  // The lambda function for reading DndClass information.
 	
 	public SerializationHelper() {
 		dndRaceGeneration = (x) -> {
@@ -43,14 +43,23 @@ public class SerializationHelper {
 		};
 	}
 	
+	/**
+	 * Assist with reading a DndRace object.
+	 */
 	public Object readRaceObjectData(String objectLocation) throws FileNotFoundException, IOException, ClassNotFoundException {
         return this.dndRaceGeneration.readObjectData(objectLocation);
 	}
 	
+	/**
+	 * Assist with reading a DndClass object.
+	 */
 	public Object readClassObjectData(String objectLocation) throws FileNotFoundException, IOException, ClassNotFoundException {
         return this.dndClassGeneration.readObjectData(objectLocation);
 	}
 	
+	/**
+	 * Assist with writing an object.
+	 */
 	public void writeObjectData(String objectLocation, Object characterObject) throws FileNotFoundException, IOException {
 		try (ObjectOutputStream outfile = new ObjectOutputStream(new FileOutputStream(objectLocation))) {       
 			outfile.writeObject(characterObject);             

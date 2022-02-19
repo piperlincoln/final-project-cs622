@@ -29,18 +29,23 @@ public class Human extends DndRace {
 	public String getRace() {
 		return this.race;
 	}
+	
 	public String getDescription() {
 		return this.description;
 	}
+	
 	public String[] getLanguages() {
 		return super.languages;
 	}
+	
 	public String[] getTraits() {
 		return this.traits;
 	}
+	
 	public GenericTraitContainer<?> getSpecialTrait() {
 		return null;
 	}
+	
 	public String[] getRecommendation() {
 		return this.recommendedClasses;
 	}

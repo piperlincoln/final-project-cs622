@@ -31,5 +31,4 @@ public class DndRaceFactoryTest {
 		});
 		assertTrue(exception.toString().contains("Unknown Race"));
 	}
-
 }

@@ -16,6 +16,3 @@ Miscellaneous Notes
 -------------------------------------------------------
 1. In future releases, a stretch goal is to use Maven
    to build my program and pull in needed dependencies.
-2. In future releases, a stretch goal is to hook
-   into the following API to read information instead
-   of hard-coding it: http://www.dnd5eapi.co/.

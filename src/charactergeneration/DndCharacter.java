@@ -29,6 +29,10 @@ public class DndCharacter {
 		this.name = name;
 	}
 	
+	public String getName() {
+		return this.name;
+	}
+	
 	public String getRace() {
 		return race.getRace();
 	}

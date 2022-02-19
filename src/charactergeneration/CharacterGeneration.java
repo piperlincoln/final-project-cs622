@@ -11,11 +11,13 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import classes.DndClass;
 import classes.DndClassFactory;
+import database.DatabaseHelper;
 import races.DndRace;
 import races.DndRaceFactory;
 
@@ -35,8 +37,7 @@ public class CharacterGeneration {
 	
 	public static void main(String[] args) {
 		// Initialize the helper class for object serialization.
-		SerializationHelper serializationHelper = new SerializationHelper();
-		
+		SerializationHelper serializationHelper = new SerializationHelper();		
 		
 		// Initialize a scanner to read user input from the console.
 		try (Scanner reader = new Scanner(System.in)) {
@@ -44,6 +45,9 @@ public class CharacterGeneration {
 			System.out.println("Welcome to the start of your adventure! Please enter the name of your character.");
 			String name = reader.nextLine();
 			DndCharacter character = new DndCharacter(name);
+			
+			// Retrieve a unique identification number for the new character.
+			int characterId = DatabaseHelper.getNewCharacterId();
 			
 			// Prompt the user to choose a race for their character.
 			try {
@@ -67,23 +71,28 @@ public class CharacterGeneration {
 				return;
 			}
 			
-			// Create a new instance of the race that the user chose for their character.
-			DndRaceFactory raceFactory = new DndRaceFactory();
+			// Create a new instance of the race that the user chose for their character. Persist the choice on disk and in the database.
 			DndRace raceObject = null;
+			DndRaceFactory raceFactory = new DndRaceFactory();
 			try {
 				raceObject = raceFactory.newRace(raceList.get(userRaceChoice - 1).split(":")[0]);
 				serializationHelper.writeObjectData(raceObjectLocation, raceObject);
+				DatabaseHelper.insertRace(characterId, raceObject);
 			} catch (UserInputException | IOException e) {
 				System.out.println(e.toString());
 				return;
 			}
 			
-			// Prompt the user to choose a class for their character.
+			// Prompt the user to choose a class for their character. Offer recommendations based on official strategy and past player choices.
 			try {
 				classList = FileIOHelper.readFileData("src/classes/DndClasses.txt");
 				System.out.println("\nPlease choose the class of your character from the twelve choices below.");
 				System.out.println("The recommended classes for " + raceObject.getRace() + 
 						           " are as follows: " + Arrays.toString(raceObject.getRecommendation()));
+				HashSet<String> pastClasses = DatabaseHelper.getCharacterClasses(raceObject.getRace());
+				if (pastClasses.size() > 0) {
+					System.out.println("Past players have chosen the following classes: " + pastClasses);
+				}
 				System.out.println(lineSeparator);
 				for (int i = 1; i <= classList.size(); i++) {
 					System.out.println(i + ". " + classList.get(i - 1));
@@ -102,11 +111,12 @@ public class CharacterGeneration {
 				return;
 			}
 			
-			// Create a new instance of the class that the user chose for their character.
-			DndClassFactory classFactory = new DndClassFactory();
+			// Create a new instance of the class that the user chose for their character. Persist the choice in the database.
 			DndClass classObject = null;
+			DndClassFactory classFactory = new DndClassFactory();
 			try {
 				classObject = classFactory.newClass(classList.get(userClassChoice - 1).split(":")[0]);
+				DatabaseHelper.insertClass(characterId, classObject);
 			} catch (UserInputException e) {
 				System.out.println(e.toString());
 				return;
@@ -121,7 +131,7 @@ public class CharacterGeneration {
 				System.out.println((i + 1) + ". " + classObject.getProficiencies()[i]);
 			}
 			
-			// Ensure the user entered two integers.
+			// Ensure the user entered two integers. Persist the choices on disk.
 			ArrayList<Integer> userProficiencyChoice = new ArrayList<Integer>();
 			try {
 				for (String str : reader.next().split(",")) {
@@ -171,8 +181,9 @@ public class CharacterGeneration {
 			// Calculate the statistics for the character.
 			character.calculateStatistics();
 			
-			// Write the information about the new character to an output file.
-			String fileLocation = character.getRace() + "-" + character.getDndClass() + ".txt";
+			// Write the information about the new character to an output file and persist the character in the database.
+			DatabaseHelper.insertCharacter(characterId, character);
+			String fileLocation = DatabaseHelper.createFileLocation(characterId);
 			String characterInformation = character.display();
 			try {
 				FileIOHelper.writeFileData(fileLocation, characterInformation);

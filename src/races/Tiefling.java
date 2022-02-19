@@ -28,25 +28,29 @@ public class Tiefling extends DndRace {
 		
 		// The special trait of the Tiefling race is their Darkvision.
 		this.specialTrait = new GenericTraitContainer<Integer>(60, "How far a Tiefling can see in the dark in feet.");
-		
 		this.recommendedClasses = new String[] {"Paladin", "Sorcerer", "Warlock"};
 	}
 	
 	public String getRace() {
 		return this.race;
 	}
+	
 	public String getDescription() {
 		return this.description;
 	}
+	
 	public String[] getLanguages() {
 		return this.languages;
 	}
+	
 	public String[] getTraits() {
 		return this.traits;
 	}
+	
 	public GenericTraitContainer<?> getSpecialTrait() {
 		return this.specialTrait;
 	}
+	
 	public String[] getRecommendation() {
 		return this.recommendedClasses;
 	}

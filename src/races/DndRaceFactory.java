@@ -23,9 +23,9 @@ public class DndRaceFactory {
 			return new Dragonborn();
 		if ("Gnome".equalsIgnoreCase(race))
 			return new Gnome();
-		if ("Half-Elf".equalsIgnoreCase(race))
+		if ("HalfElf".equalsIgnoreCase(race))
 			return new HalfElf();
-		if ("Half-Orc".equalsIgnoreCase(race))
+		if ("HalfOrc".equalsIgnoreCase(race))
 			return new HalfOrc();
 		if ("Tiefling".equalsIgnoreCase(race))
 			return new Tiefling();
